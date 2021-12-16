@@ -92,3 +92,67 @@ private:
     vector<int> set;
     int componentCount;
 };
+
+class Graph
+{
+public:
+    // multiList Representation, using vector
+    vector<vector<int>> multiList;
+    vector<int> inDegree;
+    // initialize
+    Graph(int vertexNum, int edgeNum)
+    {
+        vNum = vertexNum;
+        eNum = edgeNum;
+        multiList.resize(vertexNum);
+        inDegree.resize(vertexNum);
+    }
+
+    int getVertexNum() const
+    {
+        return vNum;
+    }
+    // insert an edge from src to dst
+    void insertEdge(int srcVertex, int dstVertex)
+    {
+        // make it easier to index
+        int src = srcVertex;
+        int dst = dstVertex;
+
+        // update parameters
+        multiList[src].push_back(dst);
+        multiList[dst].push_back(src);
+        inDegree[dst]++;
+        inDegree[src]++;
+    };
+
+    bool containsEdge(int srcVertex, int dstVertex) const
+    {
+        // make it easier to index
+        int src = srcVertex;
+        int dst = dstVertex;
+        // check if the graph contains a certain edge
+        if (find(multiList[src].begin(), multiList[src].end(), dst) != multiList[src].end())
+            return true;
+
+        return false;
+    };
+
+    void print() const
+    {
+        for (int i = 0; i < multiList.size(); i++)
+        {
+            cout << i << ": ";
+            for (int j = 0; j < multiList[i].size(); j++)
+            {
+                cout << multiList[i][j] << ' ';
+            }
+            cout << endl;
+        }
+    }
+
+private:
+    // number of edges and vertices
+    int vNum;
+    int eNum;
+};
