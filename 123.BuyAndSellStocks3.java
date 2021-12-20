@@ -1,6 +1,7 @@
-public class Solution {
+final class Solution {
     public int maxProfit(int[] prices) {
-        if (prices.length < 2) return 0;
+        if (prices.length < 2)
+            return 0;
 
         final int n = prices.length;
         int[] f = new int[n];
