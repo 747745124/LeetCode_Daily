@@ -16,6 +16,7 @@ public:
         return mask ^ num;
     }
 };
+
 int main()
 {
     Solution s;
