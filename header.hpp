@@ -7,6 +7,7 @@
 #include <iostream>
 #include <unordered_map>
 #include <string>
+#include <cmath>
 #include <memory>
 #include <vector>
 #include <unordered_set>
