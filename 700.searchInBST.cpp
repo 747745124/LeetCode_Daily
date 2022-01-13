@@ -13,7 +13,7 @@ public:
         if (cur->val == val)
             return cur;
 
-        while (cur != nullptr)
+        if (cur != nullptr)
         {
             if (cur->left && cur->val > val)
                 return traversal(cur->left, val);

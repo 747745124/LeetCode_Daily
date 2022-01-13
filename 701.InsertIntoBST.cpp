@@ -26,7 +26,7 @@ public:
             return;
         }
 
-        while (cur != nullptr)
+        if (cur != nullptr)
         {
             if (cur->left && cur->val > val)
                 return traversal(cur->left, val);
