@@ -122,9 +122,9 @@ public:
 
         // update parameters
         multiList[src].push_back(dst);
-        // multiList[dst].push_back(src);
+        multiList[dst].push_back(src);
         inDegree[dst]++;
-        // inDegree[src]++;
+        inDegree[src]++;
     };
 
     bool containsEdge(int srcVertex, int dstVertex) const
