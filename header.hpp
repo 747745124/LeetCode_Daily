@@ -89,8 +89,9 @@ public:
         return componentCount;
     }
 
-private:
     vector<int> set;
+
+private:
     int componentCount;
 };
 

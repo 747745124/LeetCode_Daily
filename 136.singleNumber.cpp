@@ -1,21 +1,14 @@
 #include "header.hpp"
+// after xor, same number becomes the original one
 class Solution
 {
 public:
     int singleNumber(vector<int> &nums)
     {
-        unordered_map<int, int> presence;
+        int res = 0;
         for (const auto &num : nums)
         {
-            if (presence[num] == 0)
-                presence[num] = 1;
-            else
-                presence.erase(num);
-        }
-        int res;
-        for (auto &x : presence)
-        {
-            res = x.first;
+            res = res ^ num;
         }
         return res;
     }
