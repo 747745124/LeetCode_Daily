@@ -41,6 +41,33 @@ public:
         }
         return header;
     }
+
+    ListNode *swapPairs_new(ListNode *head)
+    {
+        if (head == nullptr)
+            return nullptr;
+        if (head->next == nullptr)
+            return head;
+
+        ListNode dummy(-1, head);
+        ListNode *curr = head;
+        ListNode *prev = &dummy;
+
+        while (curr != nullptr && curr->next != nullptr)
+        {
+            auto first_node = curr;
+            auto second_node = curr->next;
+
+            prev->next = second_node;
+            first_node->next = second_node->next;
+            second_node->next = first_node;
+
+            prev = first_node;
+            curr = first_node->next;
+        }
+
+        return dummy.next;
+    }
 };
 
 int main()
@@ -48,5 +75,12 @@ int main()
     Solution s;
     ListNode *head = new ListNode(1);
     head->next = new ListNode(2);
-    s.swapPairs(head);
+    head->next->next = new ListNode(3);
+    head->next->next->next = new ListNode(4);
+    head = s.swapPairs_new(head);
+    while (head != nullptr)
+    {
+        cout << head->val << " ";
+        head = head->next;
+    }
 }

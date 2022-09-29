@@ -1,3 +1,4 @@
+#include "header.hpp"
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -16,12 +17,12 @@ public:
     {
         if (root == nullptr)
             return false;
-        return traversal(root, targetSum - root->val)
+        return traversal(root, targetSum - root->val);
     }
 
-    bool traversal(TreeNode *root, int count)
+    bool traversal(TreeNode *cur, int count)
     {
-        //end case
+        // end case
         if (!cur->left && !cur->right && count == 0)
             return true; // leafnode and get to target
         if (!cur->left && !cur->right)

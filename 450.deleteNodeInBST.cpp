@@ -16,25 +16,32 @@ public:
     TreeNode *deleteNode(TreeNode *root, int key)
     {
         if (root == nullptr)
-            return root;
-
+            return nullptr;
         if (key < root->val)
+        {
             root->left = deleteNode(root->left, key);
+        }
         else if (key > root->val)
+        {
             root->right = deleteNode(root->right, key);
-        //found the element to be deleted
+        }
+        // means found
         else if (root->left && root->right)
         {
-            auto smallest = findMin(root->right);
-            root->val = smallest->val;
+            auto temp = findMin(root->right);
+            root->val = temp->val;
             root->right = deleteNode(root->right, root->val);
         }
         else
         {
             if (root->left == nullptr)
+            {
                 root = root->right;
-            else if (root->right == nullptr)
+            }
+            if (root->right == nullptr)
+            {
                 root = root->left;
+            }
         }
         return root;
     }

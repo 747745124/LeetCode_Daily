@@ -63,6 +63,8 @@ public:
     // implement union function, union is a reserved key word
     void setUnion(int x, int y)
     {
+        if (x == y)
+            return;
         componentCount -= 1;
         int rootX = find(x);
         int rootY = find(y);
