@@ -19,6 +19,18 @@
 #include <deque>
 #include <map>
 #include <ctype.h>
+using namespace std;
+
+struct ListNodeD // doubly linked list node
+{
+    std::pair<int, int> val;
+    ListNodeD *next;
+    ListNodeD *prev;
+    ListNodeD() : val(0, 0), next(nullptr), prev(nullptr) {}
+    ListNodeD(int x, int y) : val(x, y), next(nullptr), prev(nullptr) {}
+    ListNodeD(int x, int y, ListNodeD *next, ListNodeD *prev) : val(x, y), next(next), prev(prev) {}
+};
+
 struct TreeNode
 {
     int val;
@@ -37,8 +49,6 @@ struct ListNode
     ListNode(int x) : val(x), next(nullptr) {}
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
-
-using namespace std;
 
 class DisjointSet
 {
