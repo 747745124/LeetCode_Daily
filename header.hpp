@@ -109,8 +109,8 @@ public:
         componentCount -= 1;
         int rootX = find(x);
         int rootY = find(y);
-        int sizeX = (set[rootX]);
-        int sizeY = (set[rootY]);
+        int sizeX = abs(set[rootX]);
+        int sizeY = abs(set[rootY]);
 
         if (sizeX >= sizeY)
         {
