@@ -2,6 +2,10 @@
 #include <iterator>
 #include <type_traits>
 #include <utility>
+#include <math.h>
+#include <random>
+#include <stdint.h>
+#include <cstdint>
 #include <numeric>
 #include <tuple>
 #include <iostream>
@@ -105,8 +109,8 @@ public:
         componentCount -= 1;
         int rootX = find(x);
         int rootY = find(y);
-        int sizeX = abs(set[rootX]);
-        int sizeY = abs(set[rootY]);
+        int sizeX = (set[rootX]);
+        int sizeY = (set[rootY]);
 
         if (sizeX >= sizeY)
         {
@@ -128,7 +132,7 @@ public:
         return componentCount;
     }
 
-    vector<int> set;
+    vector<long> set;
 
 private:
     int componentCount;
