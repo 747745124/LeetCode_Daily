@@ -10,10 +10,12 @@
 #include <tuple>
 #include <iostream>
 #include <unordered_map>
+#include <locale>
 #include <string>
 #include <cmath>
 #include <memory>
 #include <vector>
+#include <cctype>
 #include <unordered_set>
 #include <sstream>
 #include <set>
