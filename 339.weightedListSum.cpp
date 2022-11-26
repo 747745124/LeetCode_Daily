@@ -44,20 +44,19 @@ public:
 class Solution
 {
 public:
-    int sum = 0;
     int depthSum(vector<NestedInteger> &nestedList)
     {
         return dfs(nestedList, 1);
     }
-    bool dfs(vector<NestedInteger> &nestedList, int depth)
+    int dfs(vector<NestedInteger> &nestedList, int depth)
     {
-
+        int sum = 0;
         for (auto &ele : nestedList)
         {
             if (ele.isInteger())
                 sum += ele.getInteger() * depth;
             else
-                dfs(ele.getList(), depth + 1);
+                sum += dfs(ele.getList(), depth + 1);
         }
     }
 };
