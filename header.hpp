@@ -2,6 +2,8 @@
 #include <iterator>
 #include <type_traits>
 #include <utility>
+#include <ctime>
+#include <cstdlib>
 #include <math.h>
 #include <random>
 #include <stdint.h>
