@@ -11,7 +11,9 @@ public:
             graph[edge[1]].push_back(edge[0]);
         }
 
-        bitset<20000> isVisited;
+        // bitset<20000> isVisited;
+        unordered_set<int> isVisited;
+        isVisited.insert(source);
         queue<int> q;
 
         q.push(source);
@@ -20,13 +22,13 @@ public:
 
             auto node = q.front();
             q.pop();
-            isVisited.set(node);
+            isVisited.insert(node);
             if (node == destination)
                 return true;
 
             for (const auto &dest : graph[node])
             {
-                if (!isVisited.test(dest))
+                if (!isVisited.count(dest))
                 {
                     q.push(dest);
                 }
