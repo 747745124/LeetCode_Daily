@@ -1,4 +1,4 @@
-
+#include "header.hpp"
 class Solution
 {
 public:
@@ -11,7 +11,7 @@ public:
     {
 
         vector<TreeNode *> cur, next;
-        //the nodes to process in current/next step;
+        // the nodes to process in current/next step;
 
         cur.push_back(root);
         if (root->left)
@@ -92,10 +92,10 @@ public:
 
         // 此时就是：左右节点都不为空，且数值相同的情况
         // 此时才做递归，做下一层的判断
-        bool outside = compare(left->left, right->right); // 左子树：左、 右子树：右
-        bool inside = compare(left->right, right->left);  // 左子树：右、 右子树：左
-        bool isSame = outside && inside;                  // 左子树：中、 右子树：中 （逻辑处理）
-        return isSame;
+        bool outside = compare(left->left, right->right); // 左子树：左、 右子树：右
+        bool inside = compare(left->right, right->left);  // 左子树：右、 右子树：左
+        bool isSame = outside && inside;                  // 左子树：中、 右子树：中 （逻辑处理）
+        return isSame;
     }
     bool isSymmetric(TreeNode *root)
     {
