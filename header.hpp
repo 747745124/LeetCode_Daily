@@ -7,6 +7,7 @@
 #include <math.h>
 #include <random>
 #include <stdint.h>
+#include <list>
 #include <cstdint>
 #include <numeric>
 #include <tuple>
@@ -206,17 +207,62 @@ private:
     int eNum;
 };
 
-class Node
-{
-public:
-    int val;
-    Node *next;
-    Node *random;
+// class Node
+// {
+// public:
+//     int val;
+//     Node *next;
+//     Node *random;
 
-    Node(int _val)
-    {
-        val = _val;
-        next = NULL;
-        random = NULL;
-    }
+//     Node(int _val)
+//     {
+//         val = _val;
+//         next = NULL;
+//         random = NULL;
+//     }
+// };
+
+class KMP{
+
+    static vector<int> buildNextTable(string& src){
+        vector<int> next = {0,0};
+        int j = 0;
+
+        for(int i = 1;i < src.size();i++)
+        {
+            while( j > 0 &&src[i]!=src[j])
+                j=next[j];
+
+            if(src[i]==src[j])
+                j++;
+
+            next.push_back(j);
+        }
+
+        return next;
+    };
+
+public:
+    static vector<int> getKMP(string& src, string& pattern){
+        auto next = buildNextTable(pattern);
+        int j = 0;
+        vector<int> res;
+
+        for(int i = 0;i < src.size();i++)
+        {
+            while( j > 0 &&src[i]!=pattern[j])
+                j=next[j];
+
+            if(src[i]==pattern[j])
+                j++;
+            
+            if(j==pattern.size())
+            {
+                res.push_back(i-pattern.size()+1);
+                j=next[j];
+            }
+        }
+
+        return res;
+    };
 };
